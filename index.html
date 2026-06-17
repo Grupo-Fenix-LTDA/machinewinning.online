@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piuka — Semijoias e Acessórios</title>
+<meta name="description" content="Conheça a Piuka: marca brasileira de semijoias e acessórios que valoriza a autoestima, a moda e a essência única de cada mulher.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --rose: #C4956A;
+    --rose-light: #D4AA82;
+    --blush: #FAF5F0;
+    --cream: #FFF9F4;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-muted: #8A8A8A;
+    --gold: #B8945F;
+    --gold-shimmer: linear-gradient(135deg, #C4956A 0%, #E0C9A6 45%, #B8945F 100%);
+    --white: #FFFFFF;
+    --divider: #E8DDD3;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    --space-2xl: 8rem;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.7;
+    font-weight: 300;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+    transition: box-shadow 0.3s ease;
+  }
+  .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--ink);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink-soft); }
+
+  /* ── HERO ── */
+  .hero {
+    margin-top: 68px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--blush);
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-lg) var(--space-md);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,149,106,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,149,106,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 720px; }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: var(--space-md);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 auto var(--space-lg);
+    line-height: 1.8;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 2.4rem;
+    background: var(--gold-shimmer);
+    color: var(--white);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(184,148,95,0.25);
+  }
+  .hero-cta svg { width: 16px; height: 16px; }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section--full {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .section--blush { background: var(--blush); }
+  .section--cream { background: var(--cream); }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--rose); }
+
+  /* ── STORY GRID ── */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+  }
+  .story-grid.reverse { direction: rtl; }
+  .story-grid.reverse > * { direction: ltr; }
+
+  .story-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--blush);
+  }
+  .story-visual-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--rose-light);
+    background: linear-gradient(145deg, var(--blush) 0%, #F0E6DA 100%);
+  }
+  .story-visual-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(196,149,106,0.15);
+    border-radius: 2px;
+  }
+
+  .story-text { padding: var(--space-md) 0; }
+  .story-text p {
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* ── VALUES STRIP ── */
+  .values-strip {
+    background: var(--ink);
+    color: var(--white);
+    padding: var(--space-xl) var(--space-md);
+  }
+  .values-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .values-inner .section-eyebrow { color: var(--rose-light); }
+  .values-inner .section-title { color: var(--white); }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    text-align: left;
+  }
+  .value-item { padding: var(--space-md) 0; border-top: 1px solid rgba(255,255,255,0.12); }
+  .value-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-sm);
+    color: var(--rose-light);
+  }
+  .value-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    color: var(--white);
+  }
+  .value-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial-section {
+    background: var(--cream);
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+  }
+  .testimonial-inner { max-width: 700px; margin: 0 auto; }
+  .testimonial-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: var(--space-md) 0;
+    position: relative;
+  }
+  .testimonial-quote::before {
+    content: '\201C';
+    font-size: 5rem;
+    color: var(--rose-light);
+    opacity: 0.3;
+    position: absolute;
+    top: -2rem;
+    left: -1rem;
+    line-height: 1;
+  }
+  .testimonial-attr {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  /* ── CHANNELS ── */
+  .channels-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  .channel-card {
+    background: var(--white);
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    padding: var(--space-md);
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .channel-card:hover {
+    border-color: var(--rose-light);
+    box-shadow: 0 4px 16px rgba(196,149,106,0.1);
+  }
+  .channel-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--space-sm);
+    color: var(--rose);
+  }
+  .channel-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .channel-desc {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: var(--gold-shimmer);
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+    color: var(--white);
+  }
+  .cta-banner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    margin-bottom: var(--space-sm);
+  }
+  .cta-banner p {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-md);
+    opacity: 0.9;
+  }
+  .cta-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.4rem;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: transform 0.2s;
+  }
+  .cta-banner-btn:hover { transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: var(--space-xl) var(--space-md) var(--space-md);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+  .footer-brand .nav-logo { color: var(--white); display: inline-block; margin-bottom: var(--space-sm); }
+  .footer-brand p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+    max-width: 320px;
+  }
+  .footer-col-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose-light);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.6rem; }
+  .footer-links a {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .footer-contact-item svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--rose-light);
+  }
+
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  .footer-legal {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.8;
+    max-width: 600px;
+  }
+  .footer-legal strong {
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+  .footer-social { display: flex; gap: 1rem; }
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .footer-social a:hover {
+    border-color: var(--rose-light);
+    color: var(--rose-light);
+  }
+  .footer-social svg { width: 16px; height: 16px; }
+
+  .footer-badges {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: var(--space-sm);
+  }
+  .footer-badge {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 0.4rem 0.8rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .story-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+    .story-grid.reverse { direction: ltr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .channels-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .hero { min-height: 70vh; }
+    .channels-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; }
+  }
+
+  /* ── ANIMATION ── */
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="https://piuka.com.br" class="nav-logo">Piuka</a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#valores">Valores</a></li>
+      <li><a href="#canais">Onde Encontrar</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="https://piuka.com.br/collections/all" class="nav-cta">
+      Comprar
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Semijoias &amp; Acessórios</p>
+    <h1>Mais do que acessórios, <em>expressões de quem você é</em></h1>
+    <p class="hero-desc">Criamos semijoias com design autoral que valorizam a autoestima e marcam os momentos mais especiais. Do interior de São Paulo para todo o Brasil.</p>
+    <a href="https://piuka.com.br/collections/lancamentos" class="hero-cta">
+      Ver Lançamentos
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<div class="story-grid fade-in" id="sobre">
+  <div class="story-visual">
+    <div class="story-visual-placeholder">Imagem da fundadora</div>
+  </div>
+  <div class="story-text">
+    <p class="section-eyebrow">Nossa História</p>
+    <h2 class="section-title">No berço da moda para <em>o Brasil</em></h2>
+    <p>De Catanduva, interior de São Paulo — berço de marcas icônicas da moda nacional — nasceu a Piuka.</p>
+    <p>Idealizada por Ana Flávia Mei, a Piuka se tornou uma das principais marcas de semijoias e acessórios do Brasil. Com forte presença no digital e na moda nacional, criamos mais do que produtos: criamos experiências que celebram a individualidade de cada mulher.</p>
+  </div>
+</div>
+
+<div class="story-grid reverse fade-in">
+  <div class="story-visual">
+    <div class="story-visual-placeholder">Moda e tecnologia</div>
+  </div>
+  <div class="story-text">
+    <p class="section-eyebrow">Inovação</p>
+    <h2 class="section-title">Uma fusão de moda <em>e tecnologia</em></h2>
+    <p>Unimos inspiração fashion, agilidade em lançamentos e tecnologia de ponta para entregar uma experiência única e acessível para cada cliente, em qualquer lugar do país.</p>
+    <p>Nosso e-commerce é responsivo, leve e rápido. Além disso, estamos presentes nos maiores marketplaces do Brasil e contamos com lojas físicas próprias no interior de São Paulo.</p>
+  </div>
+</div>
+
+<div class="story-grid fade-in">
+  <div class="story-visual">
+    <div class="story-visual-placeholder">Coleção Piuka</div>
+  </div>
+  <div class="story-text">
+    <p class="section-eyebrow">Design Autoral</p>
+    <h2 class="section-title">Para cada mulher única, uma <em>joia única</em></h2>
+    <p>Buscamos a pluralidade e a diversidade feminina para criar coleções que expressem a individualidade de cada mulher.</p>
+    <p>Nossas peças têm design autoral e são criadas com cuidado, conforto e qualidade. Não são apenas acessórios, mas companheiras do dia a dia e da autoestima das nossas clientes.</p>
+  </div>
+</div>
+
+<!-- VALORES -->
+<section class="values-strip fade-in" id="valores">
+  <div class="values-inner">
+    <p class="section-eyebrow">O que nos move</p>
+    <h2 class="section-title">Nossos <em>valores</em></h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <svg class="value-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+        <h3 class="value-title">Autoestima</h3>
+        <p class="value-desc">Acreditamos que acessórios têm o poder de transformar e elevar a confiança de quem os usa. Cada peça é pensada para fazer você se sentir especial.</p>
+      </div>
+      <div class="value-item">
+        <svg class="value-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+        <h3 class="value-title">Qualidade</h3>
+        <p class="value-desc">Semijoias com acabamento impecável, banhadas com excelência e criadas para durar. Design autoral que combina conforto e personalidade.</p>
+      </div>
+      <div class="value-item">
+        <svg class="value-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+        <h3 class="value-title">Experiência</h3>
+        <p class="value-desc">Do momento da compra ao recebimento em casa: embalamos com carinho, entregamos com agilidade e atendemos com dedicação da nossa equipe própria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTO -->
+<section class="testimonial-section fade-in">
+  <div class="testimonial-inner">
+    <p class="section-eyebrow">#PiukaQuemUsaAma</p>
+    <div class="testimonial-quote">
+      A cada entrega é uma nova experiência fantástica
+    </div>
+    <p class="testimonial-attr">— o que sempre ouvimos das nossas clientes</p>
+  </div>
+</section>
+
+<!-- CANAIS -->
+<section class="section fade-in" id="canais">
+  <div style="text-align:center; margin-bottom: var(--space-lg);">
+    <p class="section-eyebrow">Onde encontrar</p>
+    <h2 class="section-title">Nossos <em>canais</em></h2>
+  </div>
+  <div class="channels-grid">
+    <div class="channel-card">
+      <svg class="channel-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.15c0 .415.336.75.75.75z"/></svg>
+      <h3 class="channel-name">Lojas Físicas</h3>
+      <p class="channel-desc">Visite nossas lojas próprias no interior de São Paulo</p>
+    </div>
+    <div class="channel-card">
+      <svg class="channel-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+      <h3 class="channel-name">E-commerce</h3>
+      <p class="channel-desc">piuka.com.br — envio para todo o Brasil com rastreio</p>
+    </div>
+    <div class="channel-card">
+      <svg class="channel-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>
+      <h3 class="channel-name">WhatsApp</h3>
+      <p class="channel-desc">(17) 99658-0100 — atendimento de seg a sex, 8h30 às 18h</p>
+    </div>
+    <div class="channel-card">
+      <svg class="channel-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/></svg>
+      <h3 class="channel-name">Marketplaces</h3>
+      <p class="channel-desc">Presente como seller oficial nos maiores marketplaces do país</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner fade-in">
+  <h2>Conheça nossas coleções</h2>
+  <p>Semijoias com design autoral, qualidade e personalidade — para cada momento seu.</p>
+  <a href="https://piuka.com.br/collections/all" class="cta-banner-btn">
+    Visitar a Loja
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contato">
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="https://piuka.com.br" class="nav-logo">Piuka</a>
+        <p>Marca brasileira de semijoias e acessórios femininos com design autoral. Valorizamos a autoestima e a essência única de cada mulher.</p>
+      </div>
+
+      <!-- Institucional -->
+      <div>
+        <h4 class="footer-col-title">Institucional</h4>
+        <ul class="footer-links">
+          <li><a href="https://piuka.com.br/pages/a-piuka">A Piuka</a></li>
+          <li><a href="https://piuka.com.br/pages/nossas-lojas">Nossas Lojas</a></li>
+          <li><a href="https://piuka.com.br/blogs/piuka">Blog</a></li>
+          <li><a href="https://piuka.com.br/pages/trabalhe-conosco">Trabalhe Conosco</a></li>
+        </ul>
+      </div>
+
+      <!-- Ajuda -->
+      <div>
+        <h4 class="footer-col-title">Ajuda</h4>
+        <ul class="footer-links">
+          <li><a href="https://piuka.com.br/pages/devolucao">Trocas e Devoluções</a></li>
+          <li><a href="https://piuka.com.br/pages/rastreio">Rastreio</a></li>
+          <li><a href="https://piuka.com.br/pages/politica-de-privacidade">Política de Privacidade</a></li>
+          <li><a href="https://piuka.com.br/pages/cashback">Cashback</a></li>
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div>
+        <h4 class="footer-col-title">Contato</h4>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <span>Av. Coronel Fernando Ferreira Leite, 1540<br>Jardim Califórnia — Ribeirão Preto/SP<br>CEP 14.026-900</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          <span>(17) 3522-3223<br>(17) 99658-0100</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          <span>relacionamento@piuka.com.br</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Seg a Sex — 8h30 às 18h</span>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <strong>A B B MEI LTDA</strong> — CNPJ 17.784.222/0001-45<br>
+        Av. Coronel Fernando Ferreira Leite, 1540 — Jardim Califórnia, Ribeirão Preto/SP — CEP 14.026-900<br>
+        Comércio varejista de artigos do vestuário e acessórios (CNAE 47.81-4-00)<br>
+        © 2007–2026 Piuka. Todos os direitos reservados.
+
+        <div class="footer-badges">
+          <span class="footer-badge">Compra Segura</span>
+          <span class="footer-badge">Loja Oficial</span>
+          <span class="footer-badge">LGPD</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/piuka" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://www.tiktok.com/@piuka" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.15V11.7a4.83 4.83 0 01-3.77-1.24V6.69z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCEcp_eM5RKFCRh9K2CphCaw" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/piukaacessorios" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://br.pinterest.com/piuka/" aria-label="Pinterest">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Fade-in on scroll
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  }
+</script>
+</body>
+</html>
